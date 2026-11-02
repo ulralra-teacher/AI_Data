@@ -40,8 +40,8 @@ input,textarea{width:100%;font:inherit;padding:9px 11px;border:1.5px solid var(-
 .fl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;margin:8px 0;font-size:14px}.fl>div{border:1.5px solid var(--ln);border-radius:10px;padding:8px 12px;text-align:center;background:#fff}.fl .e{font-size:26px;display:block}.fl .ar{border:0;background:none;font-size:22px;color:var(--ac);padding:0}
 .bar{height:16px;border-radius:8px;display:inline-block;vertical-align:middle}
 </style></head><body>
-<header><h1>IV. 인공지능 · 1. 인공지능과 데이터 · 02 학습 데이터</h1><p>2차시: 1차시(수업 + 엔트리 수치 데이터 실습) / 2차시(수업 + 학습 데이터 수집하기 실습, 중단원 마무리)</p></header>
-<nav><button class="tab" data-t="p1" aria-pressed="true">1차시 수업</button><button class="tab" data-t="p2" aria-pressed="false">1차시 실습 · 수치 데이터</button><button class="tab" data-t="p3" aria-pressed="false">2차시 수업</button><button class="tab" data-t="p4" aria-pressed="false">2차시 실습 · 데이터 수집하기</button></nav>
+<header><h1>IV. 인공지능 · 1. 인공지능과 데이터 · 02 학습 데이터</h1><p>2차시: 1차시(수업 + 엔트리 수치 데이터 실습) / 2차시(수업 + 캐글 데이터셋 탐색하기 실습, 중단원 마무리)</p></header>
+<nav><button class="tab" data-t="p1" aria-pressed="true">1차시 수업</button><button class="tab" data-t="p2" aria-pressed="false">1차시 실습 · 수치 데이터</button><button class="tab" data-t="p3" aria-pressed="false">2차시 수업</button><button class="tab" data-t="p4" aria-pressed="false">2차시 실습 · 데이터셋 탐색하기</button></nav>
 <main>
 <div class="pane" id="p1">
 <section><h2>1. 인공지능과 학습 데이터</h2>
@@ -142,22 +142,33 @@ input,textarea{width:100%;font:inherit;padding:9px 11px;border:1.5px solid var(-
 <div style="margin-top:10px"><button class="btn p" data-chk="g1">확인</button></div><div class="res"></div></section></div>
 
 <div class="pane" id="p4" hidden>
-<section><h2>활동. 인공지능 학습 데이터 수집하기</h2>
-<p>모둠에서 정한 주제로 학습 데이터를 수집하고 분류한 뒤 아래에 정리해 <b>PDF로 제출</b>해요. 데이터를 모을 때 개인 정보와 민감한 내용이 없는지 꼭 살펴봐요.</p>
-<div class="fig"><div class="fl"><div><span class="e">🎯</span>❶ 주제 정하기</div><div class="ar">▶</div><div><span class="e">🔎</span>❷ 수집 방법</div><div class="ar">▶</div><div><span class="e">🗂️</span>❸ 분류하기</div><div class="ar">▶</div><div><span class="e">✔️</span>❹ 유형 점검</div><div class="ar">▶</div><div><span class="e">💬</span>❺ 토의</div></div></div>
-<h3>주제 예시 (눌러서 고르거나 직접 써도 돼요)</h3><div class="items" id="items"></div>
+<section><h2>활동. 캐글 데이터 허브에서 데이터셋 탐색하기</h2>
+<p>캐글(<b>kaggle.com</b>)의 데이터 허브(<b>Datasets</b>)에서 여러 데이터셋을 둘러보고, <b>흥미로운 데이터셋 1개</b>를 골라 아래 항목을 정리해 <b>PDF로 제출</b>해요. 데이터셋 소개 페이지의 설명(Data Card)과 파일·열(column) 정보를 꼼꼼히 읽고 <b>확인한 내용을 중심으로</b> 써요.</p>
+<div class="fig"><div class="fl"><div><span class="e">🔎</span>❶ 둘러보기·고르기</div><div class="ar">▶</div><div><span class="e">📦</span>❷ 데이터 규모</div><div class="ar">▶</div><div><span class="e">✔️</span>❸ 유형 점검</div><div class="ar">▶</div><div><span class="e">🏷️</span>❹ 속성 정리</div><div class="ar">▶</div><div><span class="e">📊</span>❺ 분석 활용</div><div class="ar">▶</div><div><span class="e">🔒</span>❻ 윤리 문제</div></div></div>
+<a class="btn p" href="https://www.kaggle.com/datasets" target="_blank" rel="noopener">캐글 데이터 허브 열기 ↗</a>
+<h3>탐색 키워드 예시 (눌러서 검색해 보거나 직접 찾아도 돼요)</h3><div class="items" id="items"></div>
 <label>이름(학번 포함) / 모둠 <input id="n" placeholder="예: 20101 홍길동 / 1모둠"></label>
-<label>❶ 주제 <small>(해결하고 싶은 문제나 재미있는 주제)</small><textarea id="topic"></textarea></label>
-<label>❷ 데이터 수집 방법 <small>(해당하는 것을 고르고 구체적으로 써요)</small></label>
-<span class="ck"><input type="checkbox" name="m" value="직접 데이터 수집"> 직접 데이터 수집</span><span class="ck"><input type="checkbox" name="m" value="인터넷 검색을 통한 수집"> 인터넷 검색을 통한 수집</span><span class="ck"><input type="checkbox" name="m" value="공개 데이터 수집"> 공공 기관·기업의 공개 데이터</span>
-<textarea id="mt" placeholder="예) 검색 엔진이나 캐글(kaggle) 같은 사이트에서 ‘강아지(dog)’와 ‘고양이(cat)’를 검색해 이미지를 내려받는다."></textarea>
-<label>❸ 데이터 분류 <small>(수집한 데이터를 특성이나 범주에 따라 분류해요. 분류 이름과 개수를 써요)</small><textarea id="cl" placeholder="예) 고양이 이미지 20장, 강아지 이미지 20장을 폴더로 구분했다."></textarea></label>
-<label>❹ 데이터의 유형 <small>(수집한 데이터 유형을 점검해요)</small></label>
+<label>❶ 선택한 데이터셋 <small>(데이터셋 이름과 주소(URL), 이 데이터셋을 고른 이유)</small><textarea id="topic" placeholder="예) 데이터셋 이름: ○○○ / 주소: https://www.kaggle.com/datasets/... / 고른 이유: ..."></textarea></label>
+<label>❷ 데이터 내용과 규모 <small>(어떤 데이터가 얼마나 올려져 있는지: 파일 개수와 이름, 전체 용량, 행·열 개수 또는 이미지·소리·글의 개수 등)</small><textarea id="sz" placeholder="예) 파일 2개(train.csv, test.csv), 용량 ○MB, 행 ○○○개 × 열 ○개"></textarea></label>
+<label>❸ 데이터의 유형 <small>(해당하는 것을 모두 고르고, 그렇게 판단한 근거를 써요)</small></label>
 <span class="ck"><input type="checkbox" name="t" value="수치 데이터"> 수치 데이터</span><span class="ck"><input type="checkbox" name="t" value="이미지 데이터"> 이미지 데이터</span><span class="ck"><input type="checkbox" name="t" value="소리 데이터"> 소리 데이터</span><span class="ck"><input type="checkbox" name="t" value="텍스트 데이터"> 텍스트 데이터</span>
-<label>❺ 토의 <small>(수집한 데이터는 어떤 의미가 있을지 자유롭게 토의한 내용)</small><textarea id="ds"></textarea></label>
-<label>윤리적 문제 점검 <small>(개인 정보나 민감한 내용이 없는지, 어떻게 처리했는지)</small><textarea id="et"></textarea></label>
+<textarea id="tt" placeholder="예) 파일 형식이 CSV이고 각 열이 숫자로 되어 있어 수치 데이터이다."></textarea>
+<label>❹ 데이터의 속성 <small>(데이터를 이루는 항목(열, 특성)의 이름과 각 항목이 나타내는 의미를 3개 이상 써요)</small><textarea id="at" placeholder="예) 속성 1: temperature(기온, 단위 ℃) / 속성 2: ..."></textarea></label>
+<label>❺ 이 데이터셋으로 할 수 있는 데이터 분석 <small>(분석 주제와 방법을 구체적으로 써요. 예: 분류, 예측, 군집, 시각화)</small><textarea id="an" placeholder="예) 기온·습도 속성으로 다음 날 강수 여부를 예측하는 분류 모델을 만들 수 있다."></textarea></label>
+<label>❻ 발생할 수 있는 윤리적 문제점 <small>(개인 정보·저작권·편향·악용 가능성 등을 살펴보고, 문제를 줄이는 방법도 함께 써요)</small><textarea id="et"></textarea></label>
 <div style="margin-top:14px"><button class="btn p" id="pdf">PDF로 저장</button></div><p id="msg" role="alert"></p>
 <p class="mu">PDF가 저장되지 않으면 인쇄 창에서 ‘PDF로 저장’을 선택해요. 저장한 파일을 선생님께 제출하세요.</p></section>
+<section><h2>📝 평가 기준</h2>
+<p class="mu">5개 항목을 각각 상(3점)·중(2점)·하(1점)으로 평가해요. 총 15점 만점이에요.</p>
+<div style="overflow-x:auto"><table>
+<tr><th>평가 항목</th><th>상 (3점)</th><th>중 (2점)</th><th>하 (1점)</th></tr>
+<tr><td><b>① 데이터셋 정보 파악</b><br><small>(이름·주소, 데이터 내용과 규모)</small></td><td>이름·주소와 함께 파일 개수, 용량, 행·열 또는 데이터 개수를 실제 페이지에서 확인해 정확하게 썼다.</td><td>이름·주소와 규모 중 일부만 정확하게 썼다.</td><td>이름만 쓰거나 규모를 확인하지 않고 썼다.</td></tr>
+<tr><td><b>② 데이터 유형 판단</b></td><td>데이터 유형을 올바르게 고르고, 파일 형식·내용 등 구체적인 근거를 썼다.</td><td>데이터 유형은 올바르나 근거가 부족하다.</td><td>데이터 유형이 맞지 않거나 근거가 없다.</td></tr>
+<tr><td><b>③ 데이터 속성 이해</b></td><td>속성 3개 이상의 이름과 의미(단위 포함)를 정확하게 설명했다.</td><td>속성 1~2개를 설명했거나 의미 설명이 부족하다.</td><td>속성의 이름만 나열했거나 설명이 틀렸다.</td></tr>
+<tr><td><b>④ 데이터 분석 활용 방안</b></td><td>데이터의 속성과 연결해 분석 주제와 방법(분류·예측·군집·시각화 등)을 구체적으로 제시했다.</td><td>분석 주제는 제시했으나 속성과의 연결이나 방법이 부족하다.</td><td>분석 방안이 막연하거나 데이터와 관련이 적다.</td></tr>
+<tr><td><b>⑤ 윤리적 문제 분석</b></td><td>윤리적 문제점을 데이터셋 내용에 근거해 구체적으로 쓰고, 줄이는 방법도 함께 제시했다.</td><td>윤리적 문제점은 썼으나 데이터셋과의 연결이나 해결 방법이 부족하다.</td><td>윤리적 문제점을 쓰지 않았거나 일반적인 내용만 썼다.</td></tr>
+</table></div>
+<p class="mu">※ 제출 전에 ❶~❻ 항목이 모두 채워졌는지 확인해요. 직접 확인한 내용만 쓰고, 확인하지 못한 내용은 ‘확인하지 못함’이라고 써요.</p></section>
 <section><h2>중단원 마무리: 용어 짝 맞추기</h2><div class="fig"><svg viewBox="0 0 640 215" role="img" aria-label="인공지능 관련 용어의 관계"><rect class="gn" x="8" y="80" width="112" height="84" rx="12"/><text class="e" x="64" y="116">🗂️</text><text class="t" x="64" y="146" style="font-size:15px">학습 데이터</text><text class="a" x="134" y="130">▶</text><rect class="d" x="156" y="8" width="476" height="199" rx="16"/><text class="t" x="394" y="32">🖥️ 인공지능 시스템</text><text class="c" x="394" y="50">소프트웨어를 사용해 사용자의 목적을 달성해요</text><rect class="p" x="180" y="62" width="428" height="134" rx="14"/><text class="t" x="394" y="86">💻 인공지능 소프트웨어</text><text class="c" x="394" y="104">인공지능 모델을 사용하는 소프트웨어</text><rect class="h" x="214" y="116" width="360" height="68" rx="12"/><text class="t" x="394" y="146">🧠 인공지능 모델</text><text class="c" x="394" y="168">데이터를 학습해 만들어진 모델</text></svg></div><p class="mu" style="text-align:center">🤖 인공지능 = 사람의 지적 능력을 흉내 내어 소프트웨어로 만든 것</p>
 <p class="mu">설명에 알맞은 용어를 골라 보세요.</p>
 <div class="qz" id="g2" data-o="인공지능|인공지능 모델|인공지능 소프트웨어|인공지능 시스템|학습 데이터">
@@ -178,18 +189,17 @@ $$('.cell').forEach(function(c){c.onclick=function(){c.classList.toggle('sel')}}
 $('#ck1').onclick=function(){var ok=$$('.cell').every(function(c){return c.classList.contains('sel')===(c.dataset.k!=='n')});$('#r1').style.color=ok?'#15803d':'#b91c1c';$('#r1').textContent=ok?'정답이에요! 비어 있는 칸은 결측치, 다른 값들과 크게 벗어난 값은 이상치예요. 이런 값을 찾아 처리하는 것이 데이터 전처리예요.':'아직 아니에요. 비어 있는 값(결측치)과 다른 값들과 크게 벗어난 값(이상치)을 모두 골라 보세요.'};
 $$('.qz').forEach(function(g){var o=g.dataset.o.split('|');$$('#'+g.id+' .q').forEach(function(q){q.insertAdjacentHTML('beforeend','<select><option value="">고르기</option>'+o.map(function(x){return '<option>'+x+'</option>'}).join('')+'</select>')})});
 $$('[data-chk]').forEach(function(b){b.onclick=function(){var qs=$$('#'+b.dataset.chk+' .q'),n=0;qs.forEach(function(q){var ok=q.querySelector('select').value===q.dataset.a;if(ok)n++;q.className='q '+(ok?'ok':'no')});var r=b.closest('section').querySelector('.res');r.style.color=n===qs.length?'#15803d':'#b91c1c';r.textContent=n===qs.length?'모두 맞았어요!':qs.length+'개 중 '+n+'개 맞았어요. 틀린 칸을 다시 생각해 보세요.'}});
-var ITEMS=[['강아지와 고양이 구분하기','이미지 데이터 (지도서 예시)'],['미래의 연평균 기온 예측하기','수치 데이터'],['호랑이·늑대·여우 울음소리 구분하기','소리 데이터'],['영화 댓글의 긍정·부정 분류하기','텍스트 데이터'],['가위·바위·보 손 모양 구분하기','이미지 데이터'],['우리 학교 주변 새소리 구분하기','소리 데이터']];
-var IC=['🐶','🌡️','🐯','🎬','✊','🐦'];
-$('#items').innerHTML=ITEMS.map(function(x,i){return '<button class="it" data-i="'+i+'" aria-pressed="false"><b>'+IC[i]+' '+x[0]+'</b><span>'+x[1]+'</span></button>'}).join('');
-$$('.it').forEach(function(b){b.onclick=function(){$$('.it').forEach(function(x){x.setAttribute('aria-pressed',x===b)});$('#topic').value=ITEMS[+b.dataset.i][0]}});
+var ITEMS=[['weather','날씨 · 수치 데이터가 많은 편'],['cat dog images','동물 · 이미지 데이터가 많은 편'],['bird sound','소리 · 소리 데이터가 많은 편'],['movie reviews','영화 · 텍스트 데이터가 많은 편'],['soccer','스포츠 · 선수·경기 기록'],['music','음악 · 곡 정보와 소리']];
+var IC=['🌡️','🐶','🐦','🎬','⚽','🎵'];
+$('#items').innerHTML=ITEMS.map(function(x,i){return '<a class="it" style="text-decoration:none;color:inherit" target="_blank" rel="noopener" href="https://www.kaggle.com/datasets?search='+encodeURIComponent(x[0])+'"><b>'+IC[i]+' '+x[0]+'</b><span>'+x[1]+'</span></a>'}).join('');
 function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
 function cb(nm){return $$('input[name='+nm+']').map(function(x){return (x.checked?'■ ':'□ ')+x.value}).join('   ')}
 $('#pdf').onclick=function(){
   var m=$('#msg');m.textContent='';m.style.color='#b91c1c';
-  if(!$('#n').value.trim()||!$('#topic').value.trim()){m.textContent='이름과 주제를 먼저 적어 주세요.';return}
-  var R=[['이름(학번) / 모둠',$('#n').value],['❶ 주제',$('#topic').value],['❷ 데이터 수집 방법',cb('m')+'\n'+$('#mt').value],['❸ 데이터 분류',$('#cl').value],['❹ 데이터의 유형',cb('t')],['❺ 토의',$('#ds').value],['윤리적 문제 점검',$('#et').value]];
-  var pv=$('#pv');pv.innerHTML='<h1>인공지능 학습 데이터 수집하기</h1>'+R.map(function(r){return '<div class="r"><b>'+r[0]+'</b><div>'+esc(r[1])+'</div></div>'}).join('');
-  var fn='학습데이터_수집하기_'+$('#n').value.trim().replace(/[\\\/:*?"<>|\s]+/g,'_')+'.pdf';
+  if(!$('#n').value.trim()||!$('#topic').value.trim()){m.textContent='이름과 선택한 데이터셋을 먼저 적어 주세요.';return}
+  var R=[['이름(학번) / 모둠',$('#n').value],['❶ 선택한 데이터셋',$('#topic').value],['❷ 데이터 내용과 규모',$('#sz').value],['❸ 데이터의 유형',cb('t')+'\n'+$('#tt').value],['❹ 데이터의 속성',$('#at').value],['❺ 데이터 분석 활용',$('#an').value],['❻ 윤리적 문제점',$('#et').value]];
+  var pv=$('#pv');pv.innerHTML='<h1>캐글 데이터셋 탐색하기</h1>'+R.map(function(r){return '<div class="r"><b>'+r[0]+'</b><div>'+esc(r[1])+'</div></div>'}).join('');
+  var fn='데이터셋_탐색하기_'+$('#n').value.trim().replace(/[\\\/:*?"<>|\s]+/g,'_')+'.pdf';
   if(window.html2pdf){m.style.color='#15803d';m.textContent='PDF를 만들고 있어요…';
     html2pdf().set({margin:12,filename:fn,image:{type:'jpeg',quality:.95},html2canvas:{scale:2,backgroundColor:'#fff',windowWidth:720},jsPDF:{unit:'mm',format:'a4'},pagebreak:{mode:['css','legacy'],avoid:'.r'}}).from(pv).save().then(function(){m.textContent='저장했어요. 다운로드한 PDF 파일을 제출하세요.'}).catch(function(){m.style.color='#b91c1c';m.textContent='';window.print()});
   }else{window.print()}
