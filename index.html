@@ -149,13 +149,13 @@ input,textarea{width:100%;font:inherit;padding:9px 11px;border:1.5px solid var(-
 <h3>탐색 키워드 예시 (눌러서 검색해 보거나 직접 찾아도 돼요)</h3><div class="items" id="items"></div>
 <label>이름(학번 포함) / 모둠 <input id="n" placeholder="예: 20101 홍길동 / 1모둠"></label>
 <label>❶ 선택한 데이터셋 <small>(데이터셋 이름과 주소(URL), 이 데이터셋을 고른 이유)</small><textarea id="topic" placeholder="예) 데이터셋 이름: ○○○ / 주소: https://www.kaggle.com/datasets/... / 고른 이유: ..."></textarea></label>
-<label>❷ 데이터 내용과 규모 <small>(어떤 데이터가 얼마나 올려져 있는지: 파일 개수와 이름, 전체 용량, 행·열 개수 또는 이미지·소리·글의 개수 등)</small><textarea id="sz" placeholder="예) 파일 2개(train.csv, test.csv), 용량 ○MB, 행 ○○○개 × 열 ○개"></textarea></label>
-<label>❸ 데이터의 유형 <small>(해당하는 것을 모두 고르고, 그렇게 판단한 근거를 써요)</small></label>
+<label>❷ 데이터 내용과 규모 <small>(어떤 데이터가 얼마나 올려져 있는지: 파일 개수와 이름, 전체 용량, 행(데이터의 개수)·열(속성의 개수) 개수 또는 이미지·소리·글의 개수 등)</small><textarea id="sz" placeholder="예) 파일 2개(train.csv, test.csv), 용량 ○MB, 행(데이터의 수) ○○○개 × 열(속성의 개수) ○개"></textarea></label>
+<label>❸ 데이터의 유형 <small>(해당하는 것을 모두 고르고, 어떤 내용인지 간략하게 작성하세요.)</small></label>
 <span class="ck"><input type="checkbox" name="t" value="수치 데이터"> 수치 데이터</span><span class="ck"><input type="checkbox" name="t" value="이미지 데이터"> 이미지 데이터</span><span class="ck"><input type="checkbox" name="t" value="소리 데이터"> 소리 데이터</span><span class="ck"><input type="checkbox" name="t" value="텍스트 데이터"> 텍스트 데이터</span>
-<textarea id="tt" placeholder="예) 파일 형식이 CSV이고 각 열이 숫자로 되어 있어 수치 데이터이다."></textarea>
-<label>❹ 데이터의 속성 <small>(데이터를 이루는 항목(열, 특성)의 이름과 각 항목이 나타내는 의미를 3개 이상 써요)</small><textarea id="at" placeholder="예) 속성 1: temperature(기온, 단위 ℃) / 속성 2: ..."></textarea></label>
-<label>❺ 이 데이터셋으로 할 수 있는 데이터 분석 <small>(분석 주제와 방법을 구체적으로 써요. 예: 분류, 예측, 군집, 시각화)</small><textarea id="an" placeholder="예) 기온·습도 속성으로 다음 날 강수 여부를 예측하는 분류 모델을 만들 수 있다."></textarea></label>
-<label>❻ 발생할 수 있는 윤리적 문제점 <small>(개인 정보·저작권·편향·악용 가능성 등을 살펴보고, 문제를 줄이는 방법도 함께 써요)</small><textarea id="et"></textarea></label>
+<textarea id="tt" placeholder="예) 영화에 대한 데이터로 영화의 이름과 관객수, 상영 일자 등을 표시한다."></textarea>
+<label>❹ 데이터의 속성 <small>(데이터를 이루는 항목(열, 특성)의 이름과 각 항목이 나타내는 의미를 3개 이상 써요)</small><textarea id="at" placeholder="예) 속성 1: 영화의 제목 / 속성 2: 입장관객수"></textarea></label>
+<label>❺ 이 데이터셋으로 할 수 있는 데이터 분석<textarea id="an" placeholder="예) 인기가 있는 영화의 장르와 시기를 분석해서 제작된 영화가 언제 상영하면 좋을지 알 수 있다."></textarea></label>
+<label>❻ 발생할 수 있는 윤리적 문제점 <small>(개인 정보·저작권·편향·악용 가능성 등을 살펴보고, 문제를 줄이는 방법도 함께 써요)</small><textarea id="et" placeholder="예) 특정지역에서 인기있는 영화가 전체를 대표할 수 있는지 확인해야한다."></textarea></label>
 <div style="margin-top:14px"><button class="btn p" id="pdf">PDF로 저장</button></div><p id="msg" role="alert"></p>
 <p class="mu">PDF가 저장되지 않으면 인쇄 창에서 ‘PDF로 저장’을 선택해요. 저장한 파일을 선생님께 제출하세요.</p></section>
 <section><h2>📝 평가 기준</h2>
