@@ -456,7 +456,7 @@ drawSpec();
 "></iframe>
 <p class="mu">※ 실험실의 AI는 원리를 쉽게 보여 주려고 단순하게 만든 모형이에요. 실제 AI는 훨씬 복잡하지만 같은 이유로 실패할 수 있어요.</p>
 <h3>💬 생각해 봐요</h3>
-<div class="think" data-id="t2-lab" data-title="이미지·소리 데이터 · 생각해 봐요" data-qs="‘깨끗한 데이터’로만 학습한 AI가 왜 연습 문제와 실전 문제의 인식률이 다를까요?||학습 데이터에 배경이나 잡음을 섞으면 어떤 점이 좋아질까요? 너무 많이 섞으면 어떻게 될까요?||우리 생활에서 ‘연습만 잘하고 실전에 약한’ 경우를 찾아보고, AI와 비교해 봐요."></div></section>
+<div class="think" data-id="t2-lab" data-title="이미지·소리 데이터 · 생각해 봐요" data-qs="‘깨끗한 데이터’로만 학습시켰을 때 연습 문제와 실전 문제의 인식률이 다른 이유는 뭘까요?||학습 데이터에 배경이나 잡음을 섞으면 어떤 점이 좋아질까요? 너무 많이 섞으면 어떻게 될까요?||우리 생활에서 ‘연습만 잘하고 실전에 약한’ 경우를 찾아보고, AI와 비교해 봐요."></div></section>
 <section><h2>(3) 텍스트 데이터 준비</h2>
 <p>영화나 드라마에 대한 긍정적 또는 부정적 반응을 분류하려면 텍스트 데이터가 필요해요. 시청자의 반응은 인터넷 <b>댓글</b>에서 볼 수 있어요. 텍스트 데이터는 문자, 단어, 기호 등으로 구성되어 있어요.</p>
 <ul><li>사용 목적에 맞게 <b>충분히 수집</b>하고 일정한 <b>기준에 따라 분류</b>해요. (긍정 댓글 / 부정 댓글)</li><li>불필요한 기호나 오류를 제거하고, 단어나 문장을 잘게 나누어 학습하기 쉬운 형태로 정리해요.</li></ul>
@@ -540,11 +540,12 @@ $$('.tab').forEach(function(b){b.addEventListener('click',function(){setTimeout(
 </script>
 <script>
 /* ===== 생각해 봐요: 학번 1회 저장 + 구글 시트 제출(갱신) ===== */
-var GS_URL='https://script.google.com/macros/s/AKfycbxmPp-Vx7gOwsy7FePLGVRWcLvMlbmq-Qe9KBBiUyLZjP80Noe9Eb_oTCupKGAhFeMf/exec'; /* ← 배포한 Apps Script 웹 앱 주소(/exec)를 여기에 붙여 넣으세요 */
+var GS_URL=''; /* ← 배포한 Apps Script 웹 앱 주소(/exec)를 여기에 붙여 넣으세요 */
 (function(){
 var SK='ai_student_v1',AK='ai_think_v1';
 function lsGet(k){try{return JSON.parse(localStorage.getItem(k)||'null')}catch(e){return null}}
 function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+var DEV=(function(){var k='ai_dev_v1',v=null;try{v=localStorage.getItem(k)}catch(e){}if(!v){v=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():String(Math.random()).slice(2)+Date.now().toString(36);try{localStorage.setItem(k,v)}catch(e){}}return v})();
 var ST=lsGet(SK)||{sid:'',name:''};
 function cache(){return lsGet(AK+'_'+(ST.sid||'anon'))||{a:{},t:{}}}
 function save(c){lsSet(AK+'_'+(ST.sid||'anon'),c)}
@@ -561,7 +562,7 @@ var blocks=$$('.think').map(function(b){
     var items=qs.map(function(q,i){return {id:id+'-'+(i+1),block:title,q:q,a:tas[i].value.trim()}});
     if(!items.some(function(x){return x.a})){say('한 칸 이상 적어 주세요.','bad');return}
     btn.disabled=true;say('제출 중…');
-    fetch(GS_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({sid:ST.sid,name:ST.name,items:items})})
+    fetch(GS_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({sid:ST.sid,name:ST.name,dev:DEV,items:items})})
       .then(function(r){return r.json()})
       .then(function(j){if(!j.ok)throw new Error(j.error||'fail');var c=cache(),d=new Date(),t=d.getHours()+':'+('0'+d.getMinutes()).slice(-2);c.t[id]=t;save(c);say('✅ 제출했어요 ('+t+') · 새로 '+j.created+'개, 수정 '+j.updated+'개. 고쳐서 다시 제출하면 갱신돼요.','ok')})
       .catch(function(){say('제출하지 못했어요. 인터넷을 확인하고 다시 눌러 주세요.','bad')})
@@ -584,7 +585,7 @@ btn.onclick=function(){
   if(!$('#topic').value.trim()){say('❶ 선택한 데이터셋을 먼저 적어 주세요.','bad');return}
   var f={team:$('#n').value,topic:$('#topic').value,size:$('#sz').value,type:cb('t')+'\n'+$('#tt').value,attr:$('#at').value,use:$('#an').value,ethics:$('#et').value};
   btn.disabled=true;say('제출 중…');
-  fetch(GS_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({kind:'report',sid:ST.sid,name:ST.name,fields:f})})
+  fetch(GS_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({kind:'report',sid:ST.sid,name:ST.name,dev:DEV,fields:f})})
    .then(function(r){return r.json()})
    .then(function(j){if(!j.ok)throw new Error(j.error||'fail');var d=new Date();say('✅ '+(j.created?'제출했어요':'수정해서 다시 제출했어요')+' ('+d.getHours()+':'+('0'+d.getMinutes()).slice(-2)+'). 고쳐서 다시 제출하면 갱신돼요.','ok')})
    .catch(function(){say('제출하지 못했어요. 인터넷을 확인하고 다시 눌러 주세요.','bad')})
