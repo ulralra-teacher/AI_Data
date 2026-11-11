@@ -42,8 +42,8 @@ input,textarea{width:100%;font:inherit;padding:9px 11px;border:1.5px solid var(-
 #idbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:8px 14px;background:#fff;border-bottom:1px solid var(--ln);font-size:14px}#idbar input{width:130px;margin:0;padding:6px 9px}#idbar .btn{padding:6px 12px}
 .think label{margin-top:12px}.think textarea{min-height:84px}.tmsg{font-size:14px;margin-left:8px;color:var(--mu)}.tmsg.ok{color:var(--ok)}.tmsg.bad{color:#b91c1c}
 </style></head><body>
-<header><h1>IV. 인공지능 · 1. 인공지능과 데이터 · 02 학습 데이터</h1><p>2차시: 1차시(수업 + 엔트리 수치 데이터 실습) / 2차시(수업 + 캐글 데이터셋 탐색하기 실습, 중단원 마무리)</p></header>
-<nav><button class="tab" data-t="p1" aria-pressed="true">1차시 수업</button><button class="tab" data-t="p2" aria-pressed="false">1차시 실습 · 수치 데이터</button><button class="tab" data-t="p3" aria-pressed="false">2차시 수업</button><button class="tab" data-t="p4" aria-pressed="false">2차시 실습 · 데이터셋 탐색하기</button></nav>
+<header><h1>IV. 인공지능 · 1. 인공지능과 데이터 · 02 학습 데이터</h1><p>학습 데이터 · 수치 데이터 · 이미지·소리 데이터 · 데이터셋 탐색하기 · 중단원 마무리</p></header>
+<nav><button class="tab" data-t="p1" aria-pressed="true">학습 데이터 · 수치 데이터</button><button class="tab" data-t="p2" aria-pressed="false">실습 · 수치 데이터 (엔트리)</button><button class="tab" data-t="p3" aria-pressed="false">이미지·소리 데이터</button><button class="tab" data-t="p4" aria-pressed="false">실습 · 데이터셋 탐색하기</button></nav>
 <div id="idbar"><span id="idForm">👤 <b>학번</b> <input id="sid" inputmode="numeric" maxlength="12" placeholder="예: 20101" autocomplete="off"> <b>이름</b> <input id="sname" maxlength="12" placeholder="이름(선택)" autocomplete="off"> <button class="btn p" id="idSave" type="button">저장</button> <span class="mu">한 번만 저장하면 제출할 때마다 자동으로 쓰여요.</span></span><span id="idView" hidden>👤 <b id="idTxt"></b> <button class="btn" id="idEdit" type="button">변경</button></span></div>
 <main>
 <div class="pane" id="p1">
@@ -231,7 +231,7 @@ update();
 &lt;/html&gt;
 "></iframe>
 <h3>💬 실험하고 생각해 봐요</h3>
-<div class="think" data-id="t1-lab" data-title="1차시 · 실험하고 생각해 봐요" data-qs="데이터가 몇 개 정도부터 정확도가 안정적으로 높아졌나요?||정답표가 틀린 데이터가 30%일 때, 데이터 개수를 늘리면 해결될까요?||사과가 92%인 데이터에서 인공지능이 배를 잘 못 맞히는 까닭은 무엇일까요?||좋은 학습 데이터의 조건(양·질·균형)을 한 문장으로 정리해 봐요."></div></section>
+<div class="think" data-id="t1-lab" data-title="학습 데이터 · 실험하고 생각해 봐요" data-qs="데이터가 몇 개 정도부터 정확도가 안정적으로 높아졌나요?||정답표가 틀린 데이터가 30%일 때, 데이터 개수를 늘리면 해결될까요?||사과가 92%인 데이터에서 인공지능이 배를 잘 못 맞히는 까닭은 무엇일까요?||좋은 학습 데이터의 조건(양·질·균형)을 한 문장으로 정리해 봐요."></div></section>
 <section><h2>⚖️ 편향된 데이터가 만든 실제 사례</h2>
 <p><b>편향된 데이터</b>는 어느 한쪽으로 치우쳐서 전체를 골고루 보여 주지 못하는 데이터예요. 꽃 사진이라면 틀려도 큰일은 아니지만, <b>사람과 관련된 일</b>(취업, 얼굴 인식, 광고)에서 편향이 생기면 누군가가 <b>불공평한 대우</b>를 받을 수 있어요. 실제로 있었던 사례 4가지를 살펴봐요. (제목을 눌러 보세요)</p>
 <div><button class="btn" data-all>모두 펼치기 / 접기</button></div>
@@ -261,7 +261,7 @@ update();
 <div class="fig"><div class="fl"><div><span class="e">⚖️</span>한쪽으로 치우친<br>학습 데이터</div><div class="ar">▶</div><div><span class="e">🧠</span>인공지능 학습</div><div class="ar">▶</div><div><span class="e">⚠️</span>편향된 판단</div><div class="ar">▶</div><div><span class="e">😢</span>특정 사람들이<br>불공평한 피해</div></div></div>
 <div class="g"><div><b>✅ 이렇게 해요</b><br>데이터를 모을 때 <b>여러 집단이 골고루</b> 들어갔는지 확인해요.</div><div><b>✅ 스스로 질문해요</b><br>“이 데이터에서 빠진 사람은 없을까?”</div><div><b>✅ 공개 전에 시험해요</b><br><b>다양한 사람들로 시험</b>하고, 문제가 생기면 고쳐요.</div></div>
 <h3>💬 생각해 봐요</h3>
-<div class="think" data-id="t1-bias" data-title="1차시 · 편향 사례 생각해 봐요" data-qs="우리가 만드는 인공지능(예: 엔트리 분류 모델)의 학습 데이터를 모을 때, 편향을 줄이려면 어떤 점을 확인해야 할까요?||인공지능이 틀린 결정을 했을 때, 그 책임은 누구에게 있다고 생각하나요?"></div>
+<div class="think" data-id="t1-bias" data-title="학습 데이터 · 편향 사례 생각해 봐요" data-qs="우리가 만드는 인공지능(예: 엔트리 분류 모델)의 학습 데이터를 모을 때, 편향을 줄이려면 어떤 점을 확인해야 할까요?||인공지능이 틀린 결정을 했을 때, 그 책임은 누구에게 있다고 생각하나요?"></div>
 </section>
 <section><h2>2. 학습 데이터의 수집 및 분류</h2>
 <p>인공지능의 학습을 위해 입력하는 데이터를 <b>학습 데이터</b>라고 해요. 유형에는 <span class="chip">수치 데이터</span><span class="chip">이미지 데이터</span><span class="chip">소리 데이터</span><span class="chip">텍스트 데이터</span>가 있어요.</p>
@@ -456,7 +456,7 @@ drawSpec();
 "></iframe>
 <p class="mu">※ 실험실의 AI는 원리를 쉽게 보여 주려고 단순하게 만든 모형이에요. 실제 AI는 훨씬 복잡하지만 같은 이유로 실패할 수 있어요.</p>
 <h3>💬 생각해 봐요</h3>
-<div class="think" data-id="t2-lab" data-title="2차시 · 생각해 봐요" data-qs="‘깨끗한 데이터’로만 학습한 AI가 왜 실전에서 연습문제와 인식률에 차이가 있을까요?||학습 데이터에 배경이나 잡음을 섞으면 어떤 점이 좋아질까요? 너무 많이 섞으면 어떻게 될까요?||우리 생활에서 ‘연습만 잘하고 실전에 약한’ 경우를 찾아보고, AI와 비교해 봐요."></div></section>
+<div class="think" data-id="t2-lab" data-title="이미지·소리 데이터 · 생각해 봐요" data-qs="‘깨끗한 데이터’로만 학습한 AI가 왜 연습 문제와 실전 문제의 인식률이 다를까요?||학습 데이터에 배경이나 잡음을 섞으면 어떤 점이 좋아질까요? 너무 많이 섞으면 어떻게 될까요?||우리 생활에서 ‘연습만 잘하고 실전에 약한’ 경우를 찾아보고, AI와 비교해 봐요."></div></section>
 <section><h2>(3) 텍스트 데이터 준비</h2>
 <p>영화나 드라마에 대한 긍정적 또는 부정적 반응을 분류하려면 텍스트 데이터가 필요해요. 시청자의 반응은 인터넷 <b>댓글</b>에서 볼 수 있어요. 텍스트 데이터는 문자, 단어, 기호 등으로 구성되어 있어요.</p>
 <ul><li>사용 목적에 맞게 <b>충분히 수집</b>하고 일정한 <b>기준에 따라 분류</b>해요. (긍정 댓글 / 부정 댓글)</li><li>불필요한 기호나 오류를 제거하고, 단어나 문장을 잘게 나누어 학습하기 쉬운 형태로 정리해요.</li></ul>
@@ -471,7 +471,7 @@ drawSpec();
 
 <div class="pane" id="p4" hidden>
 <section><h2>활동. 캐글 데이터 허브에서 데이터셋 탐색하기</h2>
-<p>캐글(<b>kaggle.com</b>)의 데이터 허브(<b>Datasets</b>)에서 여러 데이터셋을 둘러보고, <b>흥미로운 데이터셋 1개</b>를 골라 아래 항목을 정리해 <b>PDF로 제출</b>해요. 데이터셋 소개 페이지의 설명(Data Card)과 파일·열(column) 정보를 꼼꼼히 읽고 <b>확인한 내용을 중심으로</b> 써요.</p>
+<p>캐글(<b>kaggle.com</b>)의 데이터 허브(<b>Datasets</b>)에서 여러 데이터셋을 둘러보고, <b>흥미로운 데이터셋 1개</b>를 골라 아래 항목을 정리해 <b>제출 버튼으로 제출</b>해요. 데이터셋 소개 페이지의 설명(Data Card)과 파일·열(column) 정보를 꼼꼼히 읽고 <b>확인한 내용을 중심으로</b> 써요.</p>
 <div class="fig"><div class="fl"><div><span class="e">🔎</span>❶ 둘러보기·고르기</div><div class="ar">▶</div><div><span class="e">📦</span>❷ 데이터 규모</div><div class="ar">▶</div><div><span class="e">✔️</span>❸ 유형 점검</div><div class="ar">▶</div><div><span class="e">🏷️</span>❹ 속성 정리</div><div class="ar">▶</div><div><span class="e">📊</span>❺ 분석 활용</div><div class="ar">▶</div><div><span class="e">🔒</span>❻ 윤리 문제</div></div></div>
 <a class="btn p" href="https://www.kaggle.com/datasets" target="_blank" rel="noopener">캐글 데이터 허브 열기 ↗</a>
 <h3>탐색 키워드 예시 (눌러서 검색해 보거나 직접 찾아도 돼요)</h3><div class="items" id="items"></div>
@@ -484,8 +484,8 @@ drawSpec();
 <label>❹ 데이터의 속성 <small>(데이터를 이루는 항목(열, 특성)의 이름과 각 항목이 나타내는 의미를 3개 이상 써요)</small><textarea id="at" placeholder="예) 속성 1: 영화의 제목 / 속성 2: 입장관객수"></textarea></label>
 <label>❺ 이 데이터셋으로 할 수 있는 데이터 분석<textarea id="an" placeholder="예) 인기가 있는 영화의 장르와 시기를 분석해서 제작된 영화가 언제 상영하면 좋을지 알 수 있다."></textarea></label>
 <label>❻ 발생할 수 있는 윤리적 문제점 <small>(개인 정보·저작권·편향·악용 가능성 등을 살펴보고, 문제를 줄이는 방법도 함께 써요)</small><textarea id="et" placeholder="예) 특정지역에서 인기있는 영화가 전체를 대표할 수 있는지 확인해야한다."></textarea></label>
-<div style="margin-top:14px"><button class="btn p" id="pdf">PDF로 저장</button></div><p id="msg" role="alert"></p>
-<p class="mu">PDF가 저장되지 않으면 인쇄 창에서 ‘PDF로 저장’을 선택해요. 저장한 파일을 선생님께 제출하세요.</p></section>
+<div style="margin-top:14px"><button class="btn p" id="dsSubmit" type="button">제출하기</button> <button class="btn" id="pdf">PDF로도 저장</button></div><p id="msg" role="alert"></p>
+<p class="mu">[제출하기]를 누르면 선생님의 구글 시트로 전송돼요. 고쳐서 다시 제출하면 내용이 갱신돼요. PDF는 내 기록용으로만 저장해요.</p></section>
 <section><h2>📝 평가 기준</h2>
 <p class="mu">5개 항목을 각각 상(3점)·중(2점)·하(1점)으로 평가해요. 총 15점 만점이에요.</p>
 <div style="overflow-x:auto"><table>
@@ -540,7 +540,7 @@ $$('.tab').forEach(function(b){b.addEventListener('click',function(){setTimeout(
 </script>
 <script>
 /* ===== 생각해 봐요: 학번 1회 저장 + 구글 시트 제출(갱신) ===== */
-var GS_URL='https://script.google.com/macros/s/AKfycbzkraFmPt5nO2Y3wfip_nVON38qSsYuj7hV6RIwiNg6bP5Xs4BACEZo_M3wa5lTkd7i/exec'; /* ← 배포한 Apps Script 웹 앱 주소(/exec)를 여기에 붙여 넣으세요 */
+var GS_URL='https://script.google.com/macros/s/AKfycbxmPp-Vx7gOwsy7FePLGVRWcLvMlbmq-Qe9KBBiUyLZjP80Noe9Eb_oTCupKGAhFeMf/exec'; /* ← 배포한 Apps Script 웹 앱 주소(/exec)를 여기에 붙여 넣으세요 */
 (function(){
 var SK='ai_student_v1',AK='ai_think_v1';
 function lsGet(k){try{return JSON.parse(localStorage.getItem(k)||'null')}catch(e){return null}}
@@ -570,9 +570,27 @@ var blocks=$$('.think').map(function(b){
   return {id:id,tas:tas,say:say};
 });
 function loadAll(){var c=cache();blocks.forEach(function(b){b.tas.forEach(function(t){t.value=c.a[b.id+'-'+(+t.dataset.i+1)]||''});b.say(c.t[b.id]?'마지막 제출 '+c.t[b.id]:'')})}
-$('#idSave').onclick=function(){var v=$('#sid').value.trim();if(!/^[0-9A-Za-z가-힣\-]{1,12}$/.test(v)){alert('학번을 확인해 주세요. (예: 20101)');return}ST={sid:v,name:$('#sname').value.trim()};lsSet(SK,ST);showId();loadAll()};
+$('#idSave').onclick=function(){var v=$('#sid').value.trim();if(!/^[0-9A-Za-z가-힣\-]{1,12}$/.test(v)){alert('학번을 확인해 주세요. (예: 20101)');return}var old=lsGet(AK+'_anon');if(!ST.sid&&old&&!lsGet(AK+'_'+v))lsSet(AK+'_'+v,old);ST={sid:v,name:$('#sname').value.trim()};lsSet(SK,ST);showId();loadAll();dsLoad()};
 $('#idEdit').onclick=function(){$('#sid').value=ST.sid;$('#sname').value=ST.name;$('#idView').hidden=true;$('#idForm').hidden=false};
-showId();loadAll();
+var DS=[['n'],['topic'],['sz'],['tt'],['at'],['an'],['et']];
+function dsSave(){var c=cache();c.ds={};DS.forEach(function(x){c.ds[x[0]]=$('#'+x[0]).value});c.ds.t=$$('input[name=t]').filter(function(x){return x.checked}).map(function(x){return x.value});save(c)}
+DS.forEach(function(x){$('#'+x[0]).addEventListener('input',dsSave)});$$('input[name=t]').forEach(function(x){x.addEventListener('change',dsSave)});
+function dsLoad(){var c=cache().ds||{};DS.forEach(function(x){var v=c[x[0]];if(!v&&x[0]==='n'&&ST.sid)v=ST.sid+(ST.name?' '+ST.name:'')+' / ';$('#'+x[0]).value=v||''});$$('input[name=t]').forEach(function(x){x.checked=(c.t||[]).indexOf(x.value)>=0})}
+(function(){var btn=$('#dsSubmit'),m=$('#msg');
+function say(t,k){m.textContent=t;m.style.color=k==='bad'?'#b91c1c':k==='ok'?'#15803d':'#6b7280'}
+btn.onclick=function(){
+  if(!ST.sid){say('먼저 위에서 학번을 저장해 주세요.','bad');$('#sid').focus();return}
+  if(!GS_URL){say('제출 주소가 아직 설정되지 않았어요. 선생님께 알려 주세요.','bad');return}
+  if(!$('#topic').value.trim()){say('❶ 선택한 데이터셋을 먼저 적어 주세요.','bad');return}
+  var f={team:$('#n').value,topic:$('#topic').value,size:$('#sz').value,type:cb('t')+'\n'+$('#tt').value,attr:$('#at').value,use:$('#an').value,ethics:$('#et').value};
+  btn.disabled=true;say('제출 중…');
+  fetch(GS_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({kind:'report',sid:ST.sid,name:ST.name,fields:f})})
+   .then(function(r){return r.json()})
+   .then(function(j){if(!j.ok)throw new Error(j.error||'fail');var d=new Date();say('✅ '+(j.created?'제출했어요':'수정해서 다시 제출했어요')+' ('+d.getHours()+':'+('0'+d.getMinutes()).slice(-2)+'). 고쳐서 다시 제출하면 갱신돼요.','ok')})
+   .catch(function(){say('제출하지 못했어요. 인터넷을 확인하고 다시 눌러 주세요.','bad')})
+   .then(function(){btn.disabled=false});
+};})();
+showId();loadAll();dsLoad();
 })();
 
 </script></body></html>
