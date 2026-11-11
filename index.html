@@ -58,6 +58,177 @@ input,textarea{width:100%;font:inherit;padding:9px 11px;border:1.5px solid var(-
 <div class="g"><div><b>❌ 잘못된 정보와 오류</b><br>틀린 값이나 오류가 섞인 데이터</div><div><b>⚖️ 대표성이 부족해 편향된 데이터</b><br>한쪽으로 치우친 데이터</div><div><b>📉 양이 적은 데이터</b><br>배울 내용이 부족한 데이터</div></div>
 <div class="fig"><b>좋은 데이터와 나쁜 데이터</b><div class="fl"><div><span class="e">🗂️</span>질 좋은 데이터<br>충분한 양</div><div class="ar">▶</div><div><span class="e">🧠</span>학습</div><div class="ar">▶</div><div><span class="e">✅</span>정확한 판단</div></div><div class="fl"><div><span class="e">🗑️</span>오류·편향·부족한<br>데이터</div><div class="ar">▶</div><div><span class="e">🧠</span>학습</div><div class="ar">▶</div><div><span class="e">⚠️</span>부정확한 판단<br>예상 못한 결과</div></div><div style="padding:4px 10px;font-size:14px"><b>예) 편향된 데이터</b> 🌹 장미 100장 <span class="bar" style="width:62%;background:#e11d48"></span><br>🌷 튤립 10장 <span class="bar" style="width:6%;background:#d97706"></span> → 새 튤립 사진을 잘 알아보지 못해요.</div></div>
 <p>이런 데이터로 학습하면 인공지능의 학습 능력과 성능이 떨어질 뿐 아니라, 의도하지 않은 <b>부정확한 판단이나 예상하지 못한 결과</b>가 나올 수 있어요.</p></section>
+<section id="lab-sec"><h2>🔬 직접 실험해 봐요: AI 데이터 실험실</h2>
+<p>위에서 본 <b>양이 적은 데이터</b>, <b>잘못된 정보와 오류</b>, <b>편향된 데이터</b>가 인공지능의 판단을 어떻게 바꾸는지 직접 확인해 봐요. 사과와 배를 구분하도록 인공지능을 학습시키는 실험이에요. 아래 슬라이더를 움직이면 인공지능이 바로 다시 학습해요.</p>
+<div class="g"><div><b>🧪 실험 1 · 데이터의 양</b><br>「📉 데이터가 적어요」를 눌러 정확도를 보고, 「✅ 좋은 데이터」와 비교해 봐요.</div><div><b>🧪 실험 2 · 데이터의 질</b><br>「❌ 엉터리 정답표」를 눌러 정확도가 얼마나 떨어지는지 봐요. 테두리 있는 점이 틀린 데이터예요.</div><div><b>🧪 실험 3 · 데이터의 균형</b><br>「⚖️ 한쪽으로 쏠린 데이터」를 눌러 사과와 배의 정답률을 비교해 봐요.</div></div>
+<div class="ans"><b>🔍 지도를 클릭해 봐요</b> 지도 위 아무 곳이나 클릭하면 ★ 주변에서 <b>가장 가까운 이웃 5개</b>가 선택돼요. 이 이웃들의 <b>다수결</b>로 인공지능이 사과인지 배인지 정해요. (k-최근접 이웃)</div>
+<iframe id="lab" title="AI 데이터 실험실" style="width:100%;height:860px;border:1px solid var(--ln);border-radius:12px;background:#f6f7fb;display:block" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ko&quot; data-theme=&quot;light&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, viewport-fit=cover&quot;&gt;
+&lt;title&gt;AI 데이터 실험실&lt;/title&gt;
+&lt;style&gt;
+:root{--bg:#f6f7fb;--card:#fff;--tx:#1d2433;--sub:#5d667a;--bd:#dde1ec;--a:#e5484d;--b:#2f9e6b;--pri:#4f5bd5;--warn:#b45309;--warnbg:#fff4e0}
+@media (prefers-color-scheme:dark){:root:not([data-theme=&quot;light&quot;]){--bg:#141722;--card:#1d2130;--tx:#eceff7;--sub:#a3abc0;--bd:#323850;--a:#ff6b70;--b:#4cc38a;--pri:#8a94ff;--warn:#fbbf6a;--warnbg:#3a2d17}}
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:&quot;Pretendard&quot;,&quot;Noto Sans KR&quot;,&quot;Malgun Gothic&quot;,system-ui,sans-serif;line-height:1.5}
+main{max-width:1000px;margin:0 auto;padding:16px}
+h1{font-size:1.5rem;margin:4px 0}
+.lead{color:var(--sub);margin:0 0 14px}
+.grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:14px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px}
+canvas{width:100%;max-width:520px;aspect-ratio:1;display:block;margin:0 auto;border-radius:10px;border:1px solid var(--bd);cursor:crosshair;touch-action:manipulation}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.85rem;color:var(--sub);margin:8px 0 0;justify-content:center}
+.ctl{margin-bottom:14px}
+.ctl label{display:flex;justify-content:space-between;font-weight:700}
+.ctl small{color:var(--sub);display:block}
+input[type=range]{width:100%;accent-color:var(--pri)}
+.btns{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+button{font:inherit;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:999px;padding:6px 12px;cursor:pointer}
+button:hover{border-color:var(--pri)}
+button.pri{background:var(--pri);color:#fff;border-color:var(--pri)}
+.score{text-align:center}
+.big{font-size:2.6rem;font-weight:800;line-height:1.1}
+.bar{height:14px;border-radius:99px;background:var(--bd);overflow:hidden;margin:6px 0}
+.bar i{display:block;height:100%;width:0;background:var(--pri);transition:width .3s}
+.sub{display:flex;gap:8px;font-size:.9rem}
+.sub div{flex:1;background:var(--bg);border-radius:8px;padding:6px}
+#msg{background:var(--warnbg);color:var(--warn);border-radius:10px;padding:10px 12px;margin-top:10px;font-weight:600}
+#msg.ok{background:rgba(47,158,107,.15);color:var(--b)}
+#msg ul{margin:4px 0 0;padding-left:18px}
+#ask{min-height:1.5em;margin:8px 0 0;text-align:center;font-weight:600}
+.note{font-size:.85rem;color:var(--sub);margin-top:10px}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;main&gt;
+&lt;div class=&quot;grid&quot;&gt;
+ &lt;section class=&quot;card&quot;&gt;
+  &lt;canvas id=&quot;cv&quot; width=&quot;520&quot; height=&quot;520&quot; aria-label=&quot;AI가 학습한 결과 지도&quot;&gt;&lt;/canvas&gt;
+  &lt;div class=&quot;legend&quot;&gt;&lt;span&gt;🔴 ● 사과 데이터&lt;/span&gt;&lt;span&gt;🟢 ■ 배 데이터&lt;/span&gt;&lt;span&gt;◎ 테두리 있는 점 = 정답표가 틀린 데이터&lt;/span&gt;&lt;/div&gt;
+  &lt;p id=&quot;ask&quot;&gt;지도를 클릭하면 AI가 그 위치의 과일을 맞혀 봅니다.&lt;/p&gt;
+  &lt;p class=&quot;note&quot;&gt;가로축: 과일 크기 → 오른쪽일수록 큼 / 세로축: 붉은 정도 → 위쪽일수록 붉음&lt;br&gt;배경색은 AI가 생각하는 구역입니다. (붉은색 = 사과, 초록색 = 배)&lt;br&gt;지도를 클릭하면 가장 가까운 이웃 5개가 번호와 함께 선택되고, 다수결로 AI의 답이 정해져요. (k-최근접 이웃)&lt;/p&gt;
+ &lt;/section&gt;
+ &lt;section class=&quot;card&quot;&gt;
+  &lt;div class=&quot;btns&quot;&gt;
+   &lt;button data-p=&quot;good&quot;&gt;✅ 좋은 데이터&lt;/button&gt;
+   &lt;button data-p=&quot;few&quot;&gt;📉 데이터가 적어요&lt;/button&gt;
+   &lt;button data-p=&quot;bad&quot;&gt;❌ 엉터리 정답표&lt;/button&gt;
+   &lt;button data-p=&quot;bias&quot;&gt;⚖️ 한쪽으로 쏠린 데이터&lt;/button&gt;
+   &lt;button class=&quot;pri&quot; id=&quot;re&quot;&gt;🎲 데이터 새로 뽑기&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;ctl&quot;&gt;&lt;label&gt;&lt;span&gt;① 데이터의 양&lt;/span&gt;&lt;span id=&quot;vn&quot;&gt;&lt;/span&gt;&lt;/label&gt;&lt;input id=&quot;n&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;300&quot; value=&quot;150&quot;&gt;&lt;small&gt;AI가 공부하는 예시의 개수&lt;/small&gt;&lt;/div&gt;
+  &lt;div class=&quot;ctl&quot;&gt;&lt;label&gt;&lt;span&gt;② 데이터의 질 (잘못된 정답표)&lt;/span&gt;&lt;span id=&quot;vq&quot;&gt;&lt;/span&gt;&lt;/label&gt;&lt;input id=&quot;q&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;50&quot; value=&quot;0&quot;&gt;&lt;small&gt;사과를 배라고, 배를 사과라고 잘못 적어 둔 비율&lt;/small&gt;&lt;/div&gt;
+  &lt;div class=&quot;ctl&quot;&gt;&lt;label&gt;&lt;span&gt;③ 데이터의 균형 (사과 비율)&lt;/span&gt;&lt;span id=&quot;vb&quot;&gt;&lt;/span&gt;&lt;/label&gt;&lt;input id=&quot;b&quot; type=&quot;range&quot; min=&quot;2&quot; max=&quot;98&quot; value=&quot;50&quot;&gt;&lt;small&gt;50%면 사과와 배가 똑같이 들어 있는 데이터&lt;/small&gt;&lt;/div&gt;
+  &lt;div class=&quot;score&quot;&gt;
+   &lt;div&gt;새로운 과일 400개로 시험 본 AI의 정확도&lt;/div&gt;
+   &lt;div class=&quot;big&quot; id=&quot;acc&quot;&gt;-&lt;/div&gt;
+   &lt;div class=&quot;bar&quot;&gt;&lt;i id=&quot;bar&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+   &lt;div class=&quot;sub&quot;&gt;&lt;div&gt;🍎 사과 정답률 &lt;b id=&quot;aa&quot;&gt;-&lt;/b&gt;&lt;/div&gt;&lt;div&gt;🍐 배 정답률 &lt;b id=&quot;ab&quot;&gt;-&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div id=&quot;msg&quot;&gt;&lt;/div&gt;
+ &lt;/section&gt;
+&lt;/div&gt;
+&lt;/main&gt;
+&lt;script&gt;
+(function(){
+var cv=document.getElementById(&#x27;cv&#x27;),ctx=cv.getContext(&#x27;2d&#x27;),S=520;
+function rng(s){return function(){s|=0;s=s+0x6D2B79F5|0;var t=Math.imul(s^s&gt;&gt;&gt;15,1|s);t=t+Math.imul(t^t&gt;&gt;&gt;7,61|t)^t;return((t^t&gt;&gt;&gt;14)&gt;&gt;&gt;0)/4294967296}}
+function gs(r){return Math.sqrt(-2*Math.log(1-r()))*Math.cos(2*Math.PI*r())}
+var M=[[.35,.68],[.65,.32]],SD=.14;
+function cl(v){return Math.max(.01,Math.min(.99,v))}
+function mk(c,r){return{c:c,x:cl(M[c][0]+SD*gs(r)),y:cl(M[c][1]+SD*gs(r))}}
+var tr=rng(999),test=[];
+for(var i=0;i&lt;400;i++)test.push(mk(i%2,tr));
+var pool,seed=1,extra=null;
+function newPool(){var r=rng(seed++*7919),p=[];for(var i=0;i&lt;300;i++)p.push({u:r(),r:r(),z:[gs(r),gs(r)]});pool=p}
+newPool();
+function $(id){return document.getElementById(id)}
+function train(n,q,b){
+ var t=[];
+ for(var i=0;i&lt;n;i++){var p=pool[i],c=p.u&lt;b?0:1,x=cl(M[c][0]+SD*p.z[0]),y=cl(M[c][1]+SD*p.z[1]),bad=p.r&lt;q;t.push({x:x,y:y,c:c,l:bad?1-c:c,bad:bad})}
+ return t}
+function knn(t,x,y){
+ if(!t.length)return -1;
+ var k=Math.min(5,t.length),d=t.map(function(o){return[(o.x-x)*(o.x-x)+(o.y-y)*(o.y-y),o.l]});
+ d.sort(function(a,b){return a[0]-b[0]});
+ var s=0;for(var i=0;i&lt;k;i++)s+=d[i][1];
+ return s*2&lt;k?0:s*2&gt;k?1:d[0][1]}
+function px(v){return v*S}
+function near(t,x,y){var k=Math.min(5,t.length);return t.map(function(o){return{o:o,d:Math.hypot(o.x-x,o.y-y)}}).sort(function(a,b){return a.d-b.d}).slice(0,k)}
+function draw(t){
+ var cs=getComputedStyle(document.documentElement),ca=cs.getPropertyValue(&#x27;--a&#x27;).trim(),cb=cs.getPropertyValue(&#x27;--b&#x27;).trim(),tx=cs.getPropertyValue(&#x27;--tx&#x27;).trim();
+ ctx.clearRect(0,0,S,S);
+ var G=26,w=S/G;
+ ctx.globalAlpha=.22;
+ for(var i=0;i&lt;G;i++)for(var j=0;j&lt;G;j++){var p=knn(t,(i+.5)/G,1-(j+.5)/G);if(p&lt;0)continue;ctx.fillStyle=p===0?ca:cb;ctx.fillRect(i*w,j*w,w+1,w+1)}
+ ctx.globalAlpha=1;
+ t.forEach(function(o){
+  var X=px(o.x),Y=px(1-o.y);ctx.fillStyle=o.c===0?ca:cb;
+  ctx.beginPath();
+  if(o.c===0)ctx.arc(X,Y,6,0,7);else ctx.rect(X-5.5,Y-5.5,11,11);
+  ctx.fill();
+  if(o.bad){ctx.strokeStyle=tx;ctx.lineWidth=2.5;ctx.beginPath();ctx.arc(X,Y,10,0,7);ctx.stroke()}
+ });
+ if(extra){
+  var X=px(extra.x),Y=px(1-extra.y),ask=$(&#x27;ask&#x27;);
+  if(t.length){
+   var nb=near(t,extra.x,extra.y),R=px(nb[nb.length-1].d),v=[0,0],p=knn(t,extra.x,extra.y),anyBad=false;
+   ctx.save();ctx.strokeStyle=tx;ctx.lineWidth=1.5;ctx.setLineDash([6,5]);ctx.beginPath();ctx.arc(X,Y,R,0,7);ctx.stroke();ctx.restore();
+   nb.forEach(function(e,i){
+    var o=e.o,OX=px(o.x),OY=px(1-o.y);v[o.l]++;if(o.bad)anyBad=true;
+    ctx.strokeStyle=tx;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(X,Y);ctx.lineTo(OX,OY);ctx.stroke();
+    ctx.lineWidth=3;ctx.beginPath();ctx.arc(OX,OY,11,0,7);ctx.stroke();
+    ctx.fillStyle=tx;ctx.font=&#x27;bold 13px sans-serif&#x27;;ctx.textAlign=&#x27;center&#x27;;ctx.textBaseline=&#x27;middle&#x27;;ctx.fillText(i+1,OX+15,OY-14);
+   });
+   ask.textContent=&#x27;★ 가장 가까운 이웃 &#x27;+nb.length+&#x27;개의 투표 → 🍎 사과 &#x27;+v[0]+&#x27;표 vs 🍐 배 &#x27;+v[1]+&#x27;표 → AI의 대답: &#x27;+(p===0?&#x27;🍎 사과!&#x27;:&#x27;🍐 배!&#x27;)+(anyBad?&#x27; (테두리 있는 이웃은 정답표가 틀린 데이터예요!)&#x27;:&#x27;&#x27;);
+  }else ask.textContent=&#x27;AI가 배운 데이터가 없어서 알 수 없어요!&#x27;;
+  ctx.fillStyle=tx;ctx.font=&#x27;bold 26px sans-serif&#x27;;ctx.textAlign=&#x27;center&#x27;;ctx.textBaseline=&#x27;middle&#x27;;ctx.fillText(&#x27;★&#x27;,X,Y);
+ }
+}
+function update(){
+ var n=+$(&#x27;n&#x27;).value,q=+$(&#x27;q&#x27;).value/100,b=+$(&#x27;b&#x27;).value/100;
+ $(&#x27;vn&#x27;).textContent=n+&#x27;개&#x27;;$(&#x27;vq&#x27;).textContent=Math.round(q*100)+&#x27;%&#x27;;$(&#x27;vb&#x27;).textContent=&#x27;사과 &#x27;+Math.round(b*100)+&#x27;% : 배 &#x27;+Math.round((1-b)*100)+&#x27;%&#x27;;
+ var t=train(n,q,b);draw(t);
+ var ok=[0,0],tot=[0,0];
+ test.forEach(function(o){tot[o.c]++;if(knn(t,o.x,o.y)===o.c)ok[o.c]++});
+ var acc=n?(ok[0]+ok[1])/400:.5;
+ $(&#x27;acc&#x27;).textContent=n?Math.round(acc*100)+&#x27;%&#x27;:&#x27;AI가 아직 아무것도 못 배웠어요&#x27;;
+ $(&#x27;bar&#x27;).style.width=(n?acc*100:0)+&#x27;%&#x27;;
+ $(&#x27;aa&#x27;).textContent=n?Math.round(ok[0]/tot[0]*100)+&#x27;%&#x27;:&#x27;-&#x27;;
+ $(&#x27;ab&#x27;).textContent=n?Math.round(ok[1]/tot[1]*100)+&#x27;%&#x27;:&#x27;-&#x27;;
+ var m=[];
+ if(n===0)m.push(&#x27;데이터가 하나도 없으면 AI는 아무것도 배울 수 없어요.&#x27;);
+ else if(n&lt;15)m.push(&#x27;데이터가 너무 적어요. 예시가 몇 개 없으면 AI가 규칙을 제대로 찾지 못해요.&#x27;);
+ if(q&gt;=.15)m.push(&#x27;틀린 정답표가 섞여 있어요. AI가 잘못된 것을 진짜인 줄 알고 배워서 헷갈려요. (쓰레기가 들어가면 쓰레기가 나온다!)&#x27;);
+ if(n&gt;0&amp;&amp;(b&gt;=.85||b&lt;=.15))m.push((b&gt;=.5?&#x27;사과&#x27;:&#x27;배&#x27;)+&#x27; 데이터만 너무 많아요. AI는 적게 본 쪽을 잘 못 맞혀서 편향된 판단을 해요. 위의 두 정답률을 비교해 보세요.&#x27;);
+ var el=$(&#x27;msg&#x27;);
+ if(m.length){el.className=&#x27;&#x27;;el.innerHTML=&#x27;⚠️ 이런 문제가 있어요&lt;ul&gt;&#x27;+m.map(function(s){return&#x27;&lt;li&gt;&#x27;+s+&#x27;&lt;/li&gt;&#x27;}).join(&#x27;&#x27;)+&#x27;&lt;/ul&gt;&#x27;}
+ else if(n&gt;=100){el.className=&#x27;ok&#x27;;el.textContent=&#x27;✅ 데이터가 충분하고, 정확하고, 균형도 잡혀 있어요. AI가 잘 배웠습니다!&#x27;}
+ else{el.className=&#x27;&#x27;;el.textContent=&#x27;데이터를 조금 더 늘려 보면 어떻게 될까요?&#x27;}
+}
+[&#x27;n&#x27;,&#x27;q&#x27;,&#x27;b&#x27;].forEach(function(id){$(id).addEventListener(&#x27;input&#x27;,function(){update()})});
+var P={good:[200,0,50],few:[6,0,50],bad:[200,30,50],bias:[200,0,92]};
+document.querySelectorAll(&#x27;[data-p]&#x27;).forEach(function(bt){bt.addEventListener(&#x27;click&#x27;,function(){var p=P[bt.dataset.p];$(&#x27;n&#x27;).value=p[0];$(&#x27;q&#x27;).value=p[1];$(&#x27;b&#x27;).value=p[2];extra=null;$(&#x27;ask&#x27;).textContent=&#x27;지도를 클릭하면 AI가 그 위치의 과일을 맞혀 봅니다.&#x27;;update()})});
+$(&#x27;re&#x27;).addEventListener(&#x27;click&#x27;,function(){newPool();update()});
+cv.addEventListener(&#x27;click&#x27;,function(e){
+ var r=cv.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=1-(e.clientY-r.top)/r.height;
+ var t=train(+$(&#x27;n&#x27;).value,+$(&#x27;q&#x27;).value/100,+$(&#x27;b&#x27;).value/100),p=knn(t,x,y);
+ extra={x:x,y:y};
+ 
+ draw(t);
+});
+update();
+})();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+<h3>💬 실험하고 생각해 봐요</h3>
+<ul><li>데이터가 몇 개 정도부터 정확도가 안정적으로 높아졌나요?</li><li>정답표가 틀린 데이터가 30%일 때, 데이터 개수를 늘리면 해결될까요?</li><li>사과가 92%인 데이터에서 인공지능이 배를 잘 못 맞히는 까닭은 무엇일까요?</li><li>좋은 학습 데이터의 조건(양·질·균형)을 한 문장으로 정리해 봐요.</li></ul></section>
 <section><h2>⚖️ 편향된 데이터가 만든 실제 사례</h2>
 <p><b>편향된 데이터</b>는 어느 한쪽으로 치우쳐서 전체를 골고루 보여 주지 못하는 데이터예요. 꽃 사진이라면 틀려도 큰일은 아니지만, <b>사람과 관련된 일</b>(취업, 얼굴 인식, 광고)에서 편향이 생기면 누군가가 <b>불공평한 대우</b>를 받을 수 있어요. 실제로 있었던 사례 4가지를 살펴봐요. (제목을 눌러 보세요)</p>
 <div><button class="btn" data-all>모두 펼치기 / 접기</button></div>
@@ -204,4 +375,6 @@ $('#pdf').onclick=function(){
     html2pdf().set({margin:12,filename:fn,image:{type:'jpeg',quality:.95},html2canvas:{scale:2,backgroundColor:'#fff',windowWidth:720},jsPDF:{unit:'mm',format:'a4'},pagebreak:{mode:['css','legacy'],avoid:'.r'}}).from(pv).save().then(function(){m.textContent='저장했어요. 다운로드한 PDF 파일을 제출하세요.'}).catch(function(){m.style.color='#b91c1c';m.textContent='';window.print()});
   }else{window.print()}
 };
+(function(){var f=$('#lab');function fit(){try{var b=f.contentDocument.body;f.style.height=Math.ceil(b.getBoundingClientRect().height)+4+'px'}catch(e){}}
+f.addEventListener('load',function(){fit();try{new ResizeObserver(fit).observe(f.contentDocument.body)}catch(e){}});})();
 </script></body></html>
