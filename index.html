@@ -349,13 +349,13 @@ canvas{max-width:100%;height:auto;display:block;image-rendering:pixelated}.cap{f
   &lt;div class=&quot;ctl&quot;&gt;&lt;label&gt;&lt;span&gt;① 학습 사진의 개수&lt;/span&gt;&lt;b id=&quot;vin&quot;&gt;&lt;/b&gt;&lt;/label&gt;&lt;input id=&quot;in&quot; type=&quot;range&quot; min=&quot;6&quot; max=&quot;160&quot; step=&quot;2&quot; value=&quot;120&quot;&gt;&lt;/div&gt;
   &lt;div class=&quot;ctl&quot;&gt;&lt;label&gt;&lt;span&gt;② 대상의 또렷함&lt;/span&gt;&lt;b id=&quot;vic&quot;&gt;&lt;/b&gt;&lt;/label&gt;&lt;input id=&quot;ic&quot; type=&quot;range&quot; min=&quot;20&quot; max=&quot;100&quot; value=&quot;100&quot;&gt;&lt;small&gt;낮을수록 물체가 배경에 묻혀 흐릿해 보여요&lt;/small&gt;&lt;/div&gt;
   &lt;div class=&quot;ctl&quot;&gt;&lt;label&gt;&lt;span&gt;③ 학습 사진의 배경 복잡도&lt;/span&gt;&lt;b id=&quot;viu&quot;&gt;&lt;/b&gt;&lt;/label&gt;&lt;input id=&quot;iu&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;100&quot; value=&quot;0&quot;&gt;&lt;small&gt;0%면 배경 없이 대상만 있는 깔끔한 사진이에요&lt;/small&gt;&lt;/div&gt;
-  &lt;div class=&quot;row&quot;&gt;&lt;button class=&quot;pri&quot; id=&quot;ir&quot;&gt;🧠 학습시키기&lt;/button&gt;&lt;button id=&quot;ir2&quot;&gt;🎲 다른 사진으로 다시&lt;/button&gt;&lt;span id=&quot;ist&quot; class=&quot;dim&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;row&quot;&gt;&lt;button id=&quot;ir2&quot;&gt;🎲 다른 사진으로 다시&lt;/button&gt;&lt;span id=&quot;ist&quot; class=&quot;dim&quot;&gt;&lt;/span&gt;&lt;/div&gt;
  &lt;/div&gt;
 &lt;/div&gt;
 &lt;div&gt;
  &lt;div class=&quot;card&quot;&gt;&lt;h2&gt;📝 시험 결과 (새로운 사진 각 100장)&lt;/h2&gt;
   &lt;div class=&quot;sc&quot;&gt;&lt;div&gt;&lt;div class=&quot;dim&quot;&gt;연습 문제&lt;br&gt;학습 때처럼 깨끗한 사진&lt;/div&gt;&lt;div class=&quot;big&quot; id=&quot;ia&quot;&gt;-&lt;/div&gt;&lt;div class=&quot;bar&quot;&gt;&lt;i id=&quot;iab&quot;&gt;&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;real&quot;&gt;&lt;div class=&quot;dim&quot;&gt;실전 문제&lt;br&gt;배경이 복잡한 현실 사진&lt;/div&gt;&lt;div class=&quot;big&quot; id=&quot;ib&quot;&gt;-&lt;/div&gt;&lt;div class=&quot;bar&quot;&gt;&lt;i id=&quot;ibb&quot;&gt;&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
-  &lt;div class=&quot;msg&quot; id=&quot;im&quot;&gt;‘학습시키기’ 버튼을 눌러 보세요.&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;msg&quot; id=&quot;im&quot;&gt;슬라이더를 움직여 보세요. 바로 시험 결과가 나와요.&lt;/div&gt;&lt;/div&gt;
  &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;cap&quot;&gt;AI가 공부한 학습 사진 (앞의 8장)&lt;/div&gt;&lt;canvas id=&quot;itr&quot;&gt;&lt;/canvas&gt;&lt;div class=&quot;cap&quot;&gt;실전 문제 8장과 AI의 답 (초록 테두리 = 정답, 빨강 = 오답)&lt;/div&gt;&lt;canvas id=&quot;ite&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -368,7 +368,7 @@ canvas{max-width:100%;height:auto;display:block;image-rendering:pixelated}.cap{f
   &lt;div class=&quot;ctl&quot;&gt;&lt;label&gt;&lt;span&gt;① 학습 소리의 개수&lt;/span&gt;&lt;b id=&quot;vsn&quot;&gt;&lt;/b&gt;&lt;/label&gt;&lt;input id=&quot;sn&quot; type=&quot;range&quot; min=&quot;6&quot; max=&quot;120&quot; step=&quot;2&quot; value=&quot;40&quot;&gt;&lt;/div&gt;
   &lt;div class=&quot;ctl&quot;&gt;&lt;label&gt;&lt;span&gt;② 대상 소리의 또렷함(크기)&lt;/span&gt;&lt;b id=&quot;vsc&quot;&gt;&lt;/b&gt;&lt;/label&gt;&lt;input id=&quot;sc&quot; type=&quot;range&quot; min=&quot;20&quot; max=&quot;100&quot; value=&quot;100&quot;&gt;&lt;small&gt;낮을수록 소리가 작아서 잘 들리지 않아요&lt;/small&gt;&lt;/div&gt;
   &lt;div class=&quot;ctl&quot;&gt;&lt;label&gt;&lt;span&gt;③ 학습 소리에 섞인 잡음&lt;/span&gt;&lt;b id=&quot;vsu&quot;&gt;&lt;/b&gt;&lt;/label&gt;&lt;input id=&quot;su&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;100&quot; value=&quot;0&quot;&gt;&lt;small&gt;0%면 잡음이 하나도 없는 녹음실 소리예요&lt;/small&gt;&lt;/div&gt;
-  &lt;div class=&quot;row&quot;&gt;&lt;button class=&quot;pri&quot; id=&quot;sr&quot;&gt;🧠 학습시키기&lt;/button&gt;&lt;button id=&quot;sr2&quot;&gt;🎲 다른 소리로 다시&lt;/button&gt;&lt;span id=&quot;sst&quot; class=&quot;dim&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;row&quot;&gt;&lt;button id=&quot;sr2&quot;&gt;🎲 다른 소리로 다시&lt;/button&gt;&lt;span id=&quot;sst&quot; class=&quot;dim&quot;&gt;&lt;/span&gt;&lt;/div&gt;
  &lt;/div&gt;
  &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;cap&quot;&gt;같은 ‘낮은 소리’를 직접 들어 보세요&lt;/div&gt;&lt;div class=&quot;row&quot;&gt;&lt;button data-pl=&quot;0,0&quot;&gt;▶ 깨끗한 소리&lt;/button&gt;&lt;button data-pl=&quot;0,0.6&quot;&gt;▶ 잡음이 섞인 소리&lt;/button&gt;&lt;button data-pl=&quot;1,0&quot;&gt;▶ 높은 소리&lt;/button&gt;&lt;/div&gt;&lt;canvas id=&quot;sp&quot; width=&quot;480&quot; height=&quot;150&quot; style=&quot;width:100%&quot;&gt;&lt;/canvas&gt;&lt;div class=&quot;dim&quot;&gt;🟦 깨끗한 소리의 스펙트럼 / 🟧 잡음이 섞인 소리 (잡음이 모든 주파수의 빈 곳을 채워요)&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -376,7 +376,7 @@ canvas{max-width:100%;height:auto;display:block;image-rendering:pixelated}.cap{f
  &lt;div class=&quot;card&quot;&gt;&lt;h2&gt;📝 시험 결과 (새로운 소리 각 100개)&lt;/h2&gt;
   &lt;div class=&quot;sc&quot;&gt;&lt;div&gt;&lt;div class=&quot;dim&quot;&gt;연습 문제&lt;br&gt;학습 때처럼 잡음 없는 소리&lt;/div&gt;&lt;div class=&quot;big&quot; id=&quot;sa&quot;&gt;-&lt;/div&gt;&lt;div class=&quot;bar&quot;&gt;&lt;i id=&quot;sab&quot;&gt;&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;real&quot;&gt;&lt;div class=&quot;dim&quot;&gt;실전 문제&lt;br&gt;잡음이 있는 현실 소리&lt;/div&gt;&lt;div class=&quot;big&quot; id=&quot;sb&quot;&gt;-&lt;/div&gt;&lt;div class=&quot;bar&quot;&gt;&lt;i id=&quot;sbb&quot;&gt;&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
   &lt;p class=&quot;dim&quot; id=&quot;sd&quot;&gt;&lt;/p&gt;
-  &lt;div class=&quot;msg&quot; id=&quot;sm&quot;&gt;‘학습시키기’ 버튼을 눌러 보세요.&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;msg&quot; id=&quot;sm&quot;&gt;슬라이더를 움직여 보세요. 바로 시험 결과가 나와요.&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;/main&gt;
@@ -412,7 +412,7 @@ function sl(ids,fn){ids.forEach(function(d){$(d[0]).oninput=lab;});function lab(
 sl([[&#x27;in&#x27;,function(v){return v+&#x27;장&#x27;}],[&#x27;ic&#x27;,function(v){return v+&#x27;%&#x27;}],[&#x27;iu&#x27;,function(v){return v+&#x27;%&#x27;}]]);
 sl([[&#x27;sn&#x27;,function(v){return v+&#x27;개&#x27;}],[&#x27;sc&#x27;,function(v){return v+&#x27;%&#x27;}],[&#x27;su&#x27;,function(v){return v+&#x27;%&#x27;}]]);
 function setBar(a,b,v,t){$(a).textContent=t;$(b).style.width=v*100+&#x27;%&#x27;}
-function bind(sel,ids,run){document.querySelectorAll(sel).forEach(function(b){b.onclick=function(){var p=b.dataset[sel.slice(6,8)].split(&#x27;,&#x27;);ids.forEach(function(d,i){$(d).value=p[i];$(d).dispatchEvent(new Event(&#x27;input&#x27;))});run()}})}
+function bind(sel,ids,run){document.querySelectorAll(sel).forEach(function(b){b.onclick=function(){var p=b.dataset[sel.slice(6,8)].split(&#x27;,&#x27;);ids.forEach(function(d,i){$(d).value=p[i];$(d).dispatchEvent(new Event(&#x27;input&#x27;))})}})}
 /* ---------- image ---------- */
 function imgTest(){if(TE.i)return TE.i;var r=rng(999),a=[],b=[];for(var i=0;i&lt;100;i++){var c=i%2;a.push({c:c,x:drawImg(c,1,0,r)});b.push({c:c,x:drawImg(c,1,1,r)})}return TE.i={a:a,b:b}}
 function show(cv,list,pr){var S=56,G=6,n=list.length,t=document.createElement(&#x27;canvas&#x27;),tc=t.getContext(&#x27;2d&#x27;),cx;t.width=t.height=N;cv.width=n*(S+G);cv.height=S+20;cx=cv.getContext(&#x27;2d&#x27;);cx.imageSmoothingEnabled=false;
@@ -447,8 +447,10 @@ function verdict(id,n,cl,cu,a,b,u,z){var m=[],el=$(id),gap=a-b;
  if(!m.length&amp;&amp;b&gt;=.8){el.className=&#x27;msg ok&#x27;;el.textContent=&#x27;✅ 다양한 환경에서 배워서 실전에도 강해요! 연습 &#x27;+pct(a)+&#x27; · 실전 &#x27;+pct(b)+&#x27;.&#x27;;return}
  if(!m.length)m.push(&#x27;연습 &#x27;+pct(a)+&#x27; · 실전 &#x27;+pct(b)+&#x27;. 슬라이더를 바꿔 가며 어떤 조건이 실전 점수를 올리는지 찾아봐요.&#x27;);
  el.className=&#x27;msg&#x27;;el.innerHTML=m.join(&#x27;&lt;br&gt;&#x27;)}
-$(&#x27;ir&#x27;).onclick=runImg;$(&#x27;ir2&#x27;).onclick=function(){seed.i+=11;runImg()};$(&#x27;sr&#x27;).onclick=runSnd;$(&#x27;sr2&#x27;).onclick=function(){seed.s+=11;runSnd()};
+$(&#x27;ir2&#x27;).onclick=function(){seed.i+=11;runImg()};$(&#x27;sr2&#x27;).onclick=function(){seed.s+=11;runSnd()};
 bind(&#x27;[data-pi]&#x27;,[&#x27;in&#x27;,&#x27;ic&#x27;,&#x27;iu&#x27;],runImg);bind(&#x27;[data-ps]&#x27;,[&#x27;sn&#x27;,&#x27;sc&#x27;,&#x27;su&#x27;],runSnd);
+var tm;function auto(f){clearTimeout(tm);tm=setTimeout(f,150)}
+[[[&#x27;in&#x27;,&#x27;ic&#x27;,&#x27;iu&#x27;],runImg],[[&#x27;sn&#x27;,&#x27;sc&#x27;,&#x27;su&#x27;],runSnd]].forEach(function(g){g[0].forEach(function(d){var o=$(d).oninput;$(d).oninput=function(){o();auto(g[1])}})});
 drawSpec();
 &lt;/script&gt;
 &lt;/body&gt;
